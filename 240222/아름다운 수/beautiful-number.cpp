@@ -7,23 +7,15 @@ int n;
 vector<int> v;
 int cnt = 0;
 
-bool check(int idx, int num) {
-    int val = v[idx];
-
-    for (int i = idx; i < idx + num; i++) {
-        if (i >= n) return false;
-        if (val != v[i]) return false;
-    }
-
-    return true;
-}
-
 void BT() {
     if (v.size() == n) {
         for (int i = 0; i < n; i++) {
-            int tmp = v[i];
-            if (!check(i, tmp)) return;
-            int nextI = i + tmp - 1;
+            int val = v[i];
+            if (i + val > n) return;
+            for (int j = 0; j < val - 1; j++) {
+                if (val != v[i + j + 1]) return;
+            }
+            i += val - 1;
         }
         cnt++;
         return;
