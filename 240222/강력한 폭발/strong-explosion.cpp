@@ -97,12 +97,10 @@ void BT() {
         return;
     }
 
-    for (int i = 0; i < n; i++) {
-        for (int j = 1; j <= 3; j++) {
-            v.push_back(j);
-            BT();
-            v.pop_back();
-        }
+    for (int j = 1; j <= 3; j++) {
+        v.push_back(j);
+        BT();
+        v.pop_back();
     }
 }
 
