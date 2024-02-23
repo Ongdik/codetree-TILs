@@ -28,7 +28,7 @@ void bfs(int x, int y) {
             int nx = nextX + dx[i];
             int ny = nextY + dy[i];
 
-            if (nx >= 0 && ny >= 0 && nx < n && ny < n) {
+            if (nx >= 0 && ny >= 0 && nx < m && ny < n) {
                 if (!visited[ny][nx] && graph[ny][nx] != 0) q.push({ nx,ny });
             }
         }
