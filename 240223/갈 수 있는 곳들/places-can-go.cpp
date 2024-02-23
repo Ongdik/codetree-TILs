@@ -28,7 +28,7 @@ void bfs(int x, int y) {
             int nx = nextX+dx[i];
             int ny = nextY+dy[i];
 
-            if (nx>=0 && ny>=0 && nx<n && ny<n) {
+            if (nx>0 && ny>0 && nx<=n && ny<=n) {
                 if (!visited[ny][nx] && graph[ny][nx]!=1) q.push({nx,ny});
             }
         }
@@ -41,8 +41,8 @@ int main() {
     cin.tie(0);
 
     cin >> n >> m;
-    for (int i=0; i<n; i++) {
-        for (int j=0; j<n; j++) {
+    for (int i=1; i<=n; i++) {
+        for (int j=1; j<=n; j++) {
             cin >> graph[i][j];
         }
     }
