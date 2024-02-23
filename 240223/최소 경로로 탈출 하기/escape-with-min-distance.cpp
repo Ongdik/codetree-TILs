@@ -4,20 +4,20 @@
 #include <queue>
 using namespace std;
 
-int n,m;
-int graph[101][101]{0};
-bool visited[101][101]{false};
+int n, m;
+int graph[101][101]{ 0 };
+bool visited[101][101]{ false };
 
-int dx[4]{1,-1,0,0};
-int dy[4]{0,0,1,-1};
+int dx[4]{ 1,-1,0,0 };
+int dy[4]{ 0,0,1,-1 };
 
-bool check = true;
+bool check = false;
 
 void bfs(int x, int y) {
-    queue<pair<pair<int,int>,int>> q;
-    q.push({{x,y},0});
+    queue<pair<pair<int, int>, int>> q;
+    q.push({ {x,y},0 });
 
-    while(!q.empty()) {
+    while (!q.empty()) {
         int nextX = q.front().first.first;
         int nextY = q.front().first.second;
         int dist = q.front().second;
@@ -31,12 +31,12 @@ void bfs(int x, int y) {
             return;
         }
 
-        for (int i=0; i<4; i++) {
-            int nx = nextX+dx[i];
-            int ny = nextY+dy[i];
+        for (int i = 0; i < 4; i++) {
+            int nx = nextX + dx[i];
+            int ny = nextY + dy[i];
 
-            if (nx>0 && ny>0 && nx<=m && ny<=n) {
-                if (!visited[ny][nx] && graph[ny][nx]!=0) q.push({{nx,ny},dist+1});
+            if (nx > 0 && ny > 0 && nx <= m && ny <= n) {
+                if (!visited[ny][nx] && graph[ny][nx] != 0) q.push({ {nx,ny},dist + 1 });
             }
         }
     }
@@ -48,13 +48,13 @@ int main() {
     cin.tie(0);
 
     cin >> n >> m;
-    for (int i=1; i<=n; i++) {
-        for (int j=1; j<=m; j++) {
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
             cin >> graph[i][j];
         }
     }
 
-    bfs(1,1);
+    bfs(1, 1);
 
     if (!check) cout << -1;
 
