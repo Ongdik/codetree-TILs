@@ -51,7 +51,7 @@ int main() {
 
     bfs(c1,r1);
 
-    if (!check) cout << 0;
+    if (!check) cout << -1;
     
     return 0;
 }
