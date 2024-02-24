@@ -3,9 +3,8 @@
 #include <algorithm>
 using namespace std;
 
-#define ll long long
-
 int n;
+int dp[1001]{0,0,1,1,1,2};
 
 int main() {
     ios_base::sync_with_stdio(0);
