@@ -12,7 +12,7 @@ int main() {
 
     cin >> n;
     for (int i=5; i<=n; i++) {
-        dp[i] = dp[i-3]+1 +dp[i-2]+1;
+        dp[i] = dp[i-3]+dp[i-2];
     }
 
     cout << dp[n];
