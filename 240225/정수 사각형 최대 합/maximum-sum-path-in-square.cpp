@@ -25,7 +25,7 @@ int main() {
         dp[i][1] = dp[i-1][1] + arr[i][1];
     }
     
-    int ans = 0;
+    int ans = dp[1][1];
     for (int i=2; i<=n; i++) {
         for (int j=2; j<=n; j++) {
             dp[i][j] = max(dp[i-1][j], dp[i][j-1])+arr[i][j];
