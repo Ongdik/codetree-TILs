@@ -5,6 +5,7 @@ using namespace std;
 int n;
 int arr[1001]{ 0 };
 int dp[1001]{ 0 };
+bool visited[1001]{ false };
 
 int main() {
     ios_base::sync_with_stdio(0);
@@ -17,23 +18,21 @@ int main() {
     }
 
     dp[1] = 0;
+    visited[1] = true;
 
     for (int i = 1; i < n; i++) {
+        if (!visited[i]) break;
         int cnt = arr[i];
         if (cnt == 0) continue;
-        bool check = false;
         for (int j = 1; j <= cnt; j++) {
             if (i + j > n) break;
-            if (arr[i + j] != 0) {
-                dp[i + j] = max(dp[i + j], dp[i] + 1);
-                check = true;
-            }
+            dp[i + j] = max(dp[i + j], dp[i] + 1);
+            visited[i + j] = true;
         }
-        if (!check) break;
     }
 
     int ans = 1;
-    for (int i=1; i<=n; i++) ans = max(ans, dp[i]);
+    for (int i = 1; i <= n; i++) ans = max(ans, dp[i]);
     cout << ans;
 
 
