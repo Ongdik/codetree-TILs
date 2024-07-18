@@ -40,7 +40,7 @@ int main() {
 
     ans.push_back(arr[r][c]);
 
-    move(r, c, arr[r][c]);
+    move(c, r, arr[r][c]);
 
     for (int i : ans) {
         cout << i << " ";
