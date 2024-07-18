@@ -38,9 +38,9 @@ int main() {
         }
     }
 
-    ans.push_back(arr[c][r]);
+    ans.push_back(arr[r][c]);
 
-    move(r, c, arr[c][r]);
+    move(r, c, arr[r][c]);
 
     for (int i : ans) {
         cout << i << " ";
