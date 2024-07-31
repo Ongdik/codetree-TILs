@@ -4,7 +4,6 @@ using namespace std;
 
 int k, n;
 vector<int> v;
-int cnt[9]{ 0 };
 
 void bt() {
     if (v.size() == n) {
@@ -16,16 +15,14 @@ void bt() {
     }
 
     for (int i = 1; i <= k; i++) {
-        cnt[i]++;
-        
-        if (cnt[i] == 3) {
-            cnt[i]--;
-            continue;
+        int idx = v.size();
+        if (v.size() >= 2) {
+            if (v[idx - 2] == i && v[idx - 1] == i) {
+                continue;
+            }
         }
-
         v.push_back(i);
         bt();
-        cnt[v[v.size() - 1]]--;
         v.pop_back();
     }
 }
